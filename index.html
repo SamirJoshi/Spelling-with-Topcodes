@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TopCodes Spelling Game</title>
+  <title>Spelling with TopCodes</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -14,8 +14,7 @@
       <div class="cameraButton" id="headerButton3" onclick="startImage(3, 'video-canvas')">Image 3</div>
       <div class="cameraButton" id="headerButton4" onclick="startImage(4, 'video-canvas')">Image 4</div>
       <div class="cameraButton" id="headerButton5" onclick="startImage(5, 'video-canvas')">Image 5</div>
-      <div class="cameraButton" id="headerButton6" onclick="startImage(6, 
-      'video-canvas')"> Check if Word </div>
+      <div class="cameraButton" id="headerButton6" onclick="startImage(6, 'video-canvas')"> Check if Word </div>
     </div>
   </div>
   <div class="row">
@@ -49,10 +48,16 @@
   <!-- </div> -->
   <!-- <button class="cameraButton" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">Stop</button> -->
   <div class="instructions">
-    Instructions: <br>
-    Click an 'Image' button to start the camera and show an image(You may have to accept the camera starting). Spell out the word shown in the image
-    with the block letters and show the codes to the camera. If the spelling is correct, the text will turn green. Click 'Stop' to stop
-    the camera at any time. 
+    <h3>Instructions: </h3>
+    <ol>
+      <li>To begin, click on one of the "Image #" buttons on the header bar. If prompted to give permission to use the camera, click "Allow".</li>
+      <li>Next, use the cards to spell out the word represented by the pictures.</li>
+      <li>When finished, show the camera the cards so that the camera can see the Topcodes.</li>
+      <li>If the word is correct and correctly spelled, the "Your Word" section will turn green and the camera will stop recording. If not, try again! (Use the "Hint" for extra help)</li>
+      <li>Click on another "Image" and play again!</li>
+      <li>Once you are finished with the images, click 'Check If Word'. Then put together letters and show the camera to check if those letters form a word!</li>
+      <li>Click "Stop" at any time to stop the camera recording.</li>
+    </ol>
   </div>
 
   <div class="footer">
@@ -116,13 +121,23 @@
     var numStr = "Number of Blocks: " + topcodes.length
     var lettersStr = "YOUR WORD: "
     <!-- $numberOfBlocks.innerHTML = numStr; -->
+    var topCodeArr = []
     for (i=0; i<topcodes.length; i++) {
-      // console.log("A CODE:" + topcodes[i].code + ", letter:" + codeLetterMap[topcodes[i].code])
-      lettersStr = lettersStr + codeLetterMap[topcodes[i].code]
+      console.log("A CODE:" + topcodes[i] + ", letter:" + codeLetterMap[topcodes[i].code])
+      topCodeArr.push(topcodes[i])
       ctx.beginPath();
       ctx.arc(topcodes[i].x, topcodes[i].y, topcodes[i].radius, 0, Math.PI*2, true);
       ctx.fill();
     }
+
+    topCodeArr = topCodeArr.sort(function(a,b){
+      return parseInt(b.x) - parseInt(a.x)
+    })
+
+    for(i = 0; i < topCodeArr.length; i++){
+      lettersStr = lettersStr + codeLetterMap[topCodeArr[i].code]
+    }
+
     $wordStr.innerHTML = lettersStr;
     var checkResult = checkWord(lettersStr)
     if(checkResult){
