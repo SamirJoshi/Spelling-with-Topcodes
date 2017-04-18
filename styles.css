@@ -1,0 +1,195 @@
+.cameraButton {
+  height: 60px;
+  width: 19%;
+  color: white;
+  font-size: 16px;
+  font-family: "Avenir Next";
+  text-align: center;
+}
+
+.cameraButton:hover{
+  background-color: #037de7;
+}
+
+.cameraButtonCanvas {
+  width: 150px;
+  background-color: red;
+}
+
+.cameraButtonCanvas:hover {
+  background-color: red;
+}
+
+.header {
+  background-color: #2196f3;
+  width: 100%;
+  height: 60px;
+  color: white;
+  padding-left: 25px;
+  line-height: 60px;
+  font-size: 16px;
+  font-family: "Avenir Next";
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.header-text {
+  width: 45%;
+  font-size: 20px;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  margin-bottom: 10px;
+}
+
+.col1 {
+  width: 488px;
+  height: 695px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #fc2196;
+  /* border-radius: 3px; */
+  /* background-color: green; */
+}
+
+.img-button-container{
+  width: 49%;
+  /* background-color: white; */
+  height: 60px;
+  /* padding-top: 5px; */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.image-container {
+  height: 600px;
+  /* background-color: #ddd; */
+}
+
+.canvas-container {
+  width: 70%;
+  height: 700px;
+  background-color: black;
+}
+
+.canvas-obj {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}
+
+.canvas-buttons{
+  width: 150px;
+  height: 90px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.button1Color{
+  background-color: #2196f3;
+}
+
+.image {
+  background-image: url('music_pic.png');
+  width: 488px;
+  height: 600px;
+  margin: 0 auto;
+  margin-top: 0px;
+  color: rgba(255, 255, 255, .01);
+}
+
+.image-0 {
+  background-image: url('noimage_pic.png');
+}
+
+.image-1 {
+  background-image: url('music_pic.png');
+}
+
+.image-2 {
+  background-image: url('cat_pic.png');
+}
+
+.image-3 {
+  background-image: url('watch_pic.png');
+}
+
+.image-4 {
+  background-image: url('pen_pic.png');
+}
+
+.image-5 {
+  background-image: url('shoe_pic.png');
+}
+
+
+.button2Color{
+  background-color: #9c27b0;
+}
+
+.button3Color{
+  background-color: #644336;
+}
+
+.button4Color{
+  background-color: #4caf50;
+}
+
+.button5Color{
+  background-color: #ff9800;
+}
+
+.instructions{
+  padding-left: 10px;
+  /* padding-top: 10px; */
+  font-family: "Avenir Next";
+  font-size: 16px;
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.word-container {
+  font-family: "Avenir Next";
+  font-size: 24px;
+  /* color: white; */
+  height: 70px;
+  width: 448px;
+  padding-left: 20px;
+  padding-top: 5px;
+  /* border-width: 5px; */
+  /* border-color: #2196f3; */
+  /* /1* border-color: #b2ff59; *1/ */
+  /* border-style: solid; */
+  /* border-radius: 5px; */
+  /* background-color: #b2ff59; */
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.word {
+  color: red;
+}
+
+body{
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+.footer {
+  width: 100%;
+  height: 50px;
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Avenir Next";
+  font-size: 14px;
+}
