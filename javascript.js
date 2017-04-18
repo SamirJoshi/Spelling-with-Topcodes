@@ -2,7 +2,7 @@ list_of_words = ['the', 'of', 'to', 'and', 'a', 'in', 'is', 'it', 'you', 'that',
 
 function permutate(word) {
   var words = [];
-  
+
   if (!word || typeof word !== 'string')
     return 'Invalid input!';
 
@@ -24,8 +24,8 @@ function permutate(word) {
 }
 
 function intersect_arrays(a, b) {
-    var sorted_a = a.sort();
     var sorted_b = b.sort();
+    var sorted_a = a.sort();
     var common = [];
     var a_i = 0;
     var b_i = 0;
@@ -49,10 +49,13 @@ function intersect_arrays(a, b) {
 
 var word = "empty"
 var permuted_word = []
+var image_number = 0
 
 function startImage(image_num, canvasId){
   resetWordContainer()
   if(image_num == 1){
+    image_number = 1
+
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-1")
 
@@ -65,6 +68,7 @@ function startImage(image_num, canvasId){
     header_field.style.backgroundColor = '#037de7'
   }
   else if(image_num == 2){
+    image_number = 2
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-2")
 
@@ -77,6 +81,7 @@ function startImage(image_num, canvasId){
     header_field.style.backgroundColor = '#037de7'
   }
   else if(image_num == 3){
+    image_number = 3
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-3")
 
@@ -89,6 +94,7 @@ function startImage(image_num, canvasId){
     header_field.style.backgroundColor = '#037de7'
   }
   else if(image_num == 4){
+    image_number = 4
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-4")
 
@@ -101,6 +107,7 @@ function startImage(image_num, canvasId){
     header_field.style.backgroundColor = '#037de7'
   }
   else if(image_num == 5){
+    image_number = 5
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-5")
 
@@ -112,7 +119,20 @@ function startImage(image_num, canvasId){
     var header_field = document.getElementById('headerButton5')
     header_field.style.backgroundColor = '#037de7'
   }
+  else if (image_num  == 6){
+    image_number = 6
+    var img = document.getElementById('image-obj')
+    img.setAttribute("class", "image image-6")
+
+    var hint_text = document.getElementById('hint')
+    hint_text.innerHTML = "HINT: See if your blocks form a word"
+
+    var header_field = document.getElementById('headerButton6')
+    header_field.style.backgroundColor = '#037de7'
+
+  }
   else{
+    image_number = 0
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-0")
 
@@ -123,22 +143,47 @@ function startImage(image_num, canvasId){
   }
 
   TopCodes.startVideoScan(canvasId)
-  permuted_word = permutate(word)
 }
 
 function checkWord(topcode_letters){
   var tcLettersLower = topcode_letters.substring(11).toLowerCase()
-  
-  if(permuted_word.includes(tcLettersLower)){
-    console.log("IS EQUAL")
-    var word_cont = document.getElementById("word-container")
-    word_cont.style.backgroundColor = "#b2ff59"
-    // word_cont.style.borderColor = "#b2ff59"
-    
-    var hint_text = document.getElementById('hint')
-    hint_text.innerHTML = "CORRECT"
-    
-    return true;
+  if(tcLettersLower.length == 0){
+    return false
+  }
+
+  if(image_number <= 5){
+    if(tcLettersLower.includes(word)){
+      console.log("IS EQUAL")
+      var word_cont = document.getElementById("word-container")
+      word_cont.style.backgroundColor = "#b2ff59"
+      var word_text= document.getElementById("word")
+      word_text.style.color = "black"
+      // word_cont.style.borderColor = "#b2ff59"
+
+      var hint_text = document.getElementById('hint')
+      hint_text.innerHTML = word.toUpperCase()
+
+      return true;
+    }
+  }
+  else{
+    console.log("TC:" + tcLettersLower)
+    permuted_word = permutate(tcLettersLower)
+    console.log("AAAAAPPPPPP" + permuted_word)
+    i_list = intersect_arrays(permuted_word, list_of_words)
+    console.log("INTERSECTED LIST:" + i_list)
+    if(i_list.length > 0){
+      var word_cont = document.getElementById("word-container")
+      word_cont.style.backgroundColor = "#b2ff59"
+      var word_text= document.getElementById("word")
+      word_text.style.color = "black"
+      // word_cont.style.borderColor = "#b2ff59"
+
+      var hint_text = document.getElementById('hint')
+      hint_text.innerHTML = "WORD FOUND:" + i_list[0].toUpperCase()
+
+      return true;
+    }
   }
   return false;
 }
@@ -160,8 +205,8 @@ function resetWordContainer(){
   header_field.style.backgroundColor = '#2196f3'
 }
 
-// Pass word derived from topcodes into rearrange 
+// Pass word derived from topcodes into rearrange
 var words = permutate('hsop');
+console.log("AAAAA" + words)
 var intersections = intersect_arrays(words, list_of_words)
 console.log(intersections);
-

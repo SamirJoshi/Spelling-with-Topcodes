@@ -1,6 +1,6 @@
 .cameraButton {
   height: 60px;
-  width: 19%;
+  width: 16%;
   color: white;
   font-size: 16px;
   font-family: "Avenir Next";
@@ -27,7 +27,7 @@
   color: white;
   padding-left: 25px;
   line-height: 60px;
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Avenir Next";
   display: flex;
   flex-direction: row;
@@ -36,7 +36,6 @@
 
 .header-text {
   width: 45%;
-  font-size: 20px;
 }
 
 .row {
@@ -129,6 +128,10 @@
   background-image: url('shoe_pic.png');
 }
 
+.image-6 {
+  background-image: url('collage_pic.png');
+}
+
 
 .button2Color{
   background-color: #9c27b0;
@@ -146,9 +149,13 @@
   background-color: #ff9800;
 }
 
+.button6Color{
+  background-color: #ff9800;
+}
+
 .instructions{
   padding-left: 10px;
-  /* padding-top: 10px; */
+  padding-top: 10px;
   font-family: "Avenir Next";
   font-size: 16px;
   width: 98%;
@@ -179,11 +186,6 @@
   color: red;
 }
 
-body{
-  background-color: white;
-  margin: 0px;
-  padding: 0px;
-}
 
 .footer {
   width: 100%;
@@ -192,4 +194,10 @@ body{
   text-align: center;
   font-family: "Avenir Next";
   font-size: 14px;
+}
+
+body{
+  background-color: white;
+  margin: 0px;
+  padding: 0px;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spelling with Topcodes</title>
+  <title>Spelling with TopCodes</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -14,6 +14,7 @@
       <div class="cameraButton" id="headerButton3" onclick="startImage(3, 'video-canvas')">Image 3</div>
       <div class="cameraButton" id="headerButton4" onclick="startImage(4, 'video-canvas')">Image 4</div>
       <div class="cameraButton" id="headerButton5" onclick="startImage(5, 'video-canvas')">Image 5</div>
+      <div class="cameraButton" id="headerButton6" onclick="startImage(6, 'video-canvas')"> Check if Word </div>
     </div>
   </div>
   <div class="row">
@@ -32,11 +33,20 @@
       </div>
       <div class="canvas-buttons">
         <!-- <button class="cameraButton cameraButtonCanvas" id="camera-button" onclick="TopCodes.startVideoScan('video-canvas')">Start</button> -->
-        <button class="cameraButton cameraButtonCanvas" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">STOP</button>
+        <button class="cameraButton cameraButtonCanvas" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">Stop</button>
       </div>
     </div>
   </div>
   <br/>
+  <!-- <button class="cameraButton" id="camera-button" onclick="TopCodes.startVideoScan('video-canvas')">Start</button> -->
+  <!-- <div class="img-button-container"> -->
+  <!--   <button class="cameraButton button1Color" onclick="startImage(1, 'video-canvas')">Image 1</button> -->
+  <!--   <button class="cameraButton button2Color" onclick="startImage(2, 'video-canvas')">Image 2</button> -->
+  <!--   <button class="cameraButton button3Color" onclick="startImage(3, 'video-canvas')">Image 3</button> -->
+  <!--   <button class="cameraButton button4Color" onclick="startImage(4, 'video-canvas')">Image 4</button> -->
+  <!--   <button class="cameraButton button5Color" onclick="startImage(5, 'video-canvas')">Image 5</button> -->
+  <!-- </div> -->
+  <!-- <button class="cameraButton" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">Stop</button> -->
   <div class="instructions">
     <h3>Instructions: </h3>
     <ol>
@@ -45,6 +55,7 @@
       <li>When finished, show the camera the cards so that the camera can see the Topcodes.</li>
       <li>If the word is correct and correctly spelled, the "Your Word" section will turn green and the camera will stop recording. If not, try again! (Use the "Hint" for extra help)</li>
       <li>Click on another "Image" and play again!</li>
+      <li>Once you are finished with the images, click 'Check If Word'. Then put together letters and show the camera to check if those letters form a word!</li>
       <li>Click "Stop" at any time to stop the camera recording.</li>
     </ol>
   </div>
@@ -110,13 +121,23 @@
     var numStr = "Number of Blocks: " + topcodes.length
     var lettersStr = "YOUR WORD: "
     <!-- $numberOfBlocks.innerHTML = numStr; -->
+    var topCodeArr = []
     for (i=0; i<topcodes.length; i++) {
-      // console.log("A CODE:" + topcodes[i].code + ", letter:" + codeLetterMap[topcodes[i].code])
-      lettersStr = lettersStr + codeLetterMap[topcodes[i].code]
+      console.log("A CODE:" + topcodes[i] + ", letter:" + codeLetterMap[topcodes[i].code])
+      topCodeArr.push(topcodes[i])
       ctx.beginPath();
       ctx.arc(topcodes[i].x, topcodes[i].y, topcodes[i].radius, 0, Math.PI*2, true);
       ctx.fill();
     }
+
+    topCodeArr = topCodeArr.sort(function(a,b){
+      return parseInt(b.x) - parseInt(a.x)
+    })
+
+    for(i = 0; i < topCodeArr.length; i++){
+      lettersStr = lettersStr + codeLetterMap[topCodeArr[i].code]
+    }
+
     $wordStr.innerHTML = lettersStr;
     var checkResult = checkWord(lettersStr)
     if(checkResult){
