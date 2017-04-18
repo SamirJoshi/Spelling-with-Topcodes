@@ -112,6 +112,17 @@ function startImage(image_num, canvasId){
     var header_field = document.getElementById('headerButton5')
     header_field.style.backgroundColor = '#037de7'
   }
+  else if (image_num  == 6){
+    var img = document.getElementById('image-obj')
+    img.setAttribute("class", "image image-6")
+
+    var hint_text = document.getElementById('hint')
+    hint_text.innerHTML = "HINT: See if your blocks form a word"
+
+    var header_field = document.getElementById('headerButton6')
+    header_field.style.backgroundColor = '#037de7'
+
+  }
   else{
     var img = document.getElementById('image-obj')
     img.setAttribute("class", "image image-0")

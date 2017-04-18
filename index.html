@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Spelling with Topcodes</title>
+  <title>TopCodes Spelling Game</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -14,6 +14,8 @@
       <div class="cameraButton" id="headerButton3" onclick="startImage(3, 'video-canvas')">Image 3</div>
       <div class="cameraButton" id="headerButton4" onclick="startImage(4, 'video-canvas')">Image 4</div>
       <div class="cameraButton" id="headerButton5" onclick="startImage(5, 'video-canvas')">Image 5</div>
+      <div class="cameraButton" id="headerButton6" onclick="startImage(6, 
+      'video-canvas')"> Check if Word </div>
     </div>
   </div>
   <div class="row">
@@ -32,30 +34,26 @@
       </div>
       <div class="canvas-buttons">
         <!-- <button class="cameraButton cameraButtonCanvas" id="camera-button" onclick="TopCodes.startVideoScan('video-canvas')">Start</button> -->
-        <button class="cameraButton cameraButtonCanvas" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">STOP</button>
+        <button class="cameraButton cameraButtonCanvas" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">Stop</button>
       </div>
     </div>
   </div>
   <br/>
+  <!-- <button class="cameraButton" id="camera-button" onclick="TopCodes.startVideoScan('video-canvas')">Start</button> -->
+  <!-- <div class="img-button-container"> -->
+  <!--   <button class="cameraButton button1Color" onclick="startImage(1, 'video-canvas')">Image 1</button> -->
+  <!--   <button class="cameraButton button2Color" onclick="startImage(2, 'video-canvas')">Image 2</button> -->
+  <!--   <button class="cameraButton button3Color" onclick="startImage(3, 'video-canvas')">Image 3</button> -->
+  <!--   <button class="cameraButton button4Color" onclick="startImage(4, 'video-canvas')">Image 4</button> -->
+  <!--   <button class="cameraButton button5Color" onclick="startImage(5, 'video-canvas')">Image 5</button> -->
+  <!-- </div> -->
+  <!-- <button class="cameraButton" id="camera-button" onclick="TopCodes.stopVideoScan('video-canvas')">Stop</button> -->
   <div class="instructions">
-    <h3>Instructions: </h3>
-    <ol>
-      <li>To begin, click on one of the "Image #" buttons on the header bar. If prompted to give permission to use the camera, click "Allow".</li>
-      <li>Next, use the cards to spell out the word represented by the pictures.</li>
-      <li>When finished, show the camera the cards so that the camera can see the Topcodes.</li>
-      <li>If the word is correct and correctly spelled, the "Your Word" section will turn green and the camera will stop recording. If not, try again! (Use the "Hint" for extra help)</li>
-      <li>Click on another "Image" and play again!</li>
-      <li>Click "Stop" at any time to stop the camera recording.</li>
-    </ol>
+    Instructions: <br>
+    Click an 'Image' button to start the camera and show an image(You may have to accept the camera starting). Spell out the word shown in the image
+    with the block letters and show the codes to the camera. If the spelling is correct, the text will turn green. Click 'Stop' to stop
+    the camera at any time. 
   </div>
-
-  <div class="footer">
-    For the more info on this, click <a href="https://docs.google.com/a/u.northwestern.edu/document/d/1rD0mCyGYii_aPuDBoyDMVyXG4Y5k03LisWRkJ31hHN0/edit?usp=sharing">here</a>.<br>
-    To see the code, click <a href="https://github.com/SamirJoshi/Spelling-with-Topcodes">here</a>.<br>
-    The topcodes.js file and parts of the index.html file were given/writen by <strong>Prof. Michael Horn</strong>. <br>
-    Made by <strong>Samir Joshi</strong> and <strong>Akshay Batra</strong>.
-  </div>
-
 
   <script src="topcodes.js"></script>
   <script src="javascript.js" type="text/javascript"></script>
